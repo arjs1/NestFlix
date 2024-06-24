@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nestflix_movie/core/firebase/firebase_push_notification_service.dart';
 import 'package:nestflix_movie/core/homepage.dart';
 
 class LoginPage extends StatefulWidget {
@@ -98,6 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       );
                     }
+                    FirebasePushNotificationService().getFcmToken();
                   },
                   child: Text(
                     "Lets go",

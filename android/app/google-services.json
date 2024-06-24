@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "488289532756",
+    "project_id": "nestflix-9b3ef",
+    "storage_bucket": "nestflix-9b3ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488289532756:android:2fc62f5dab685acf87a6c1",
+        "android_client_info": {
+          "package_name": "com.example.nestflix_movie"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8QY_53pmg8yoahzxUazLDQ-JFBB94Ux4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

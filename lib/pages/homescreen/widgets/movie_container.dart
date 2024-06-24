@@ -25,7 +25,7 @@ class _MovieContainerState extends State<MovieContainer> {
       children: [
         Expanded(
           child: Container(
-            height: 200,
+            height: 300,
             width: 150,
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -47,16 +47,23 @@ class _MovieContainerState extends State<MovieContainer> {
             ),
             IconButton(
               onPressed: () {
-                void pressed(bool value) {
-                  setState(() {
-                    ispressed = value;
-                  });
-                }
+                setState(() {
+                  ispressed = true;
+                });
               },
-              icon: Icon(
-                Icons.favorite_outline,
-                color: Colors.white,
-              ),
+              // icon: Icon(
+              //   Icons.favorite_outline,
+              //   color: !ispressed ? Colors.white : Colors.red,
+              // ),
+              icon: !ispressed
+                  ? Icon(
+                      Icons.favorite_outline,
+                      color: Colors.white,
+                    )
+                  : Icon(
+                      Icons.favorite,
+                      color: Colors.red,
+                    ),
             )
           ],
         )

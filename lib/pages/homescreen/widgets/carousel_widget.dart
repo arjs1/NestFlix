@@ -21,23 +21,28 @@ class CarouselWidget extends StatelessWidget {
       height: 200,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        image: DecorationImage(image: AssetImage(imagePath), fit: BoxFit.cover),
+        image:
+            DecorationImage(image: NetworkImage(imagePath), fit: BoxFit.cover),
       ),
       padding: EdgeInsets.all(15),
       alignment: Alignment.bottomLeft,
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            imageTitle,
-            style: GoogleFonts.poppins(
-              color: Colors.white,
-              fontSize: 30,
-              fontWeight: FontWeight.w500,
+          SizedBox(
+            width: MediaQuery.of(context).size.width / 1.5,
+            child: Text(
+              imageTitle,
+              style: GoogleFonts.poppins(
+                color: Colors.white,
+                fontSize: 30,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
           SizedBox(
-            width: 100,
+            height: 10,
           ),
           Container(
             width: 100,

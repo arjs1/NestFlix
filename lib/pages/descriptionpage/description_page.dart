@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nestflix_movie/pages/homescreen/model/carousel_model.dart';
-import 'package:nestflix_movie/pages/homescreen/model/movie_model.dart';
+// import 'package:nestflix_movie/pages/homescreen/model/movie_model.dart';
 
 class DescriptionPage extends StatefulWidget {
   const DescriptionPage({super.key});
@@ -13,10 +13,10 @@ class DescriptionPage extends StatefulWidget {
 class _DescriptionPageState extends State<DescriptionPage> {
   @override
   Widget build(BuildContext context) {
-    carouselModel? carouseldata =
+    carouselModel carouseldata =
         ModalRoute.of(context)?.settings.arguments as carouselModel;
-    MovieModel? moviedata =
-        ModalRoute.of(context)?.settings.arguments as MovieModel;
+    // MovieModel? moviedata =
+    //     ModalRoute.of(context)?.settings.arguments as MovieModel;
     return Scaffold(
       backgroundColor: Colors.black,
       body: ListView(
@@ -25,9 +25,7 @@ class _DescriptionPageState extends State<DescriptionPage> {
             height: MediaQuery.of(context).size.width / 0.9,
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: MovieModel == Null
-                      ? AssetImage(carouseldata.imagePath)
-                      : AssetImage(moviedata.moviePath),
+                  image: NetworkImage(carouseldata.imagePath),
                   fit: BoxFit.fill),
             ),
           ),
@@ -44,9 +42,7 @@ class _DescriptionPageState extends State<DescriptionPage> {
                   width: 5,
                 ),
                 Text(
-                  MovieModel == Null
-                      ? carouseldata.movieStar!
-                      : moviedata.movieStar,
+                  carouseldata.movieStar!,
                   style: GoogleFonts.bebasNeue(
                     color: Colors.amber[900],
                     fontSize: 25,
@@ -61,9 +57,7 @@ class _DescriptionPageState extends State<DescriptionPage> {
               // carouselModel == null
               //  ? moviedata.movieTitle.toUpperCase():carouseldata.imageTitle.toUpperCase(),
 
-              MovieModel == Null
-                  ? carouseldata.imageTitle
-                  : moviedata.movieTitle,
+              carouseldata.imageTitle,
               style: GoogleFonts.poppins(
                 fontWeight: FontWeight.w500,
                 color: Colors.white,
@@ -74,9 +68,7 @@ class _DescriptionPageState extends State<DescriptionPage> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              MovieModel == Null
-                  ? carouseldata.movieDescription
-                  : moviedata.movieDescription,
+              carouseldata.movieDescription,
               style: GoogleFonts.poppins(
                 color: Colors.white,
                 wordSpacing: 2.0,

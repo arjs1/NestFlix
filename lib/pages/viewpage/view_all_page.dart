@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nestflix_movie/core/utilis/movie_data.dart';
+import 'package:nestflix_movie/pages/descriptionpage/description_page.dart';
+import 'package:nestflix_movie/pages/homescreen/model/carousel_model.dart';
 
 import 'package:nestflix_movie/pages/homescreen/widgets/movie_container.dart';
 
@@ -39,9 +41,29 @@ class _ViewAllPageState extends State<ViewAllPage> {
             ),
             itemCount: moviedata.length,
             itemBuilder: (BuildContext context, int index) {
-              return MovieContainer(
-                moviePath: moviedata[index].moviePath,
-                movieStar: moviedata[index].movieStar,
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DescriptionPage(),
+                        settings: RouteSettings(
+                            arguments: carouselModel(
+                          imagePath: moviedata[index].moviePath,
+                          imageTitle: moviedata[index].movieTitle,
+                          movieDescription: moviedata[index].movieDescription,
+                          movieStar: moviedata[index].movieStar,
+                        )),
+                      ),
+                    );
+                  },
+                  child: MovieContainer(
+                    moviePath: moviedata[index].moviePath,
+                    movieStar: moviedata[index].movieStar,
+                  ),
+                ),
               );
             },
           ),

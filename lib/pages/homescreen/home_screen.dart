@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nestflix_movie/core/utilis/carousel_data.dart';
 import 'package:nestflix_movie/core/utilis/movie_data.dart';
-import 'package:nestflix_movie/pages/descriptionpage/description_carousel_page.dart';
+import 'package:nestflix_movie/pages/descriptionpage/description_page.dart';
 import 'package:nestflix_movie/pages/homescreen/model/carousel_model.dart';
-import 'package:nestflix_movie/pages/homescreen/model/movie_model.dart';
 import 'package:nestflix_movie/pages/homescreen/widgets/header_widget.dart';
 import 'package:nestflix_movie/pages/homescreen/widgets/movie_container.dart';
 import 'package:nestflix_movie/pages/viewpage/view_all_page.dart';
@@ -86,16 +85,6 @@ class _HomeScreenState extends State<HomeScreen> {
             SizedBox(
               height: 18,
             ),
-            // ListView.builder(
-            //   physics: NeverScrollableScrollPhysics(),
-            //   shrinkWrap: true,
-            //   // scrollDirection: Axis.horizontal,
-            //   itemCount: moviedata.length,
-            //   itemBuilder: (BuildContext context, int index) {
-            //     return
-            //     );
-            //   },
-            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -142,13 +131,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       MaterialPageRoute(
                         builder: (context) => DescriptionPage(),
                         settings: RouteSettings(
-                          arguments: MovieModel(
-                            moviePath: moviedata[index].moviePath,
-                            movieTitle: moviedata[index].movieTitle,
-                            movieStar: moviedata[index].movieStar,
-                            movieDescription: moviedata[index].movieDescription,
-                          ),
-                        ),
+                            arguments: carouselModel(
+                          imagePath: moviedata[index].moviePath,
+                          imageTitle: moviedata[index].movieTitle,
+                          movieDescription: moviedata[index].movieDescription,
+                          movieStar: moviedata[index].movieStar,
+                        )),
                       ),
                     );
                   },

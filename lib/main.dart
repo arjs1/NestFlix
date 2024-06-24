@@ -1,8 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:nestflix_movie/core/firebase/firebase_option.dart';
 
 import 'package:nestflix_movie/pages/loginpage/login_page.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOption.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
